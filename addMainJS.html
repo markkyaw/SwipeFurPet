@@ -1,0 +1,95 @@
+// Global variables
+
+var pets = [];
+var currentIndex = 0;
+
+
+
+
+
+//Fetch data from pet finder
+
+var pets = [];
+const xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://localhost:8080/Backend2/AdopterPreferences");
+    xhr.send();
+    xhr.onload = () => {
+      const json = JSON.parse(xhr.response);
+      this.fetchPets(json);
+    }
+
+  fetchPets = (json) => {
+    const client = new Client({apiKey: "iiyYrC5Y4GhsTGnDbpUk3vLerxcpc5cH4GQPn0jQ19NeajnLNZ", secret: "ZOMDVAWUrEs6gmAM9MOyj3MdReJkMQH5T5QIug6J"});
+    client.animal.search({
+      type: json.type,
+      size: json.size,
+      age: json.age,
+      limit: 100
+    })
+    .then((response) => {
+      const animals = response.data.animals;
+      for (var i = 0; i < animals.length; i++) {
+        const temp = animals[i];
+        if (temp.photos.length > 0) {
+            const pet = {
+                Pet_Name: temp.name, 
+                PetType: temp.species, 
+                Size: temp.size, 
+                Age: temp.age, 
+                Gender: temp.gender,
+                Rescus_ID: temp.organization_id,
+                ImgLink: temp.photos[0].medium,  
+                Children: temp.environment.children,
+                Dogs: temp.environment.dogs,
+                Cats: temp.environment.cats
+            };
+          pets.push(pet);
+        }
+      }
+    })
+  }
+  
+  
+  
+  // Swipe right
+  
+    swipeRight = () => {
+    const temp = pets[currentIndex];
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost:8080/Backend2/Match?pet_name=" + temp.Pet_Name + "&pettype=" + temp.PetType + "&size=" + temp.Size + "&age=" + temp.Age + "&gender=" + temp.Gender + "&rescue_id=" + temp.Rescus_ID + "&imglink=" + temp.ImgLink + "&children=" + temp.Children + "&dogs=" + temp.Dogs + "&cats=" + temp.Cats);
+    xhr.send();
+    
+    xhr.onload = () => {
+      console.log(xhr.response);
+    }
+
+
+    if (currentIndex == pets.length - 1) {
+      currentIndex = 0;
+    } 
+    else {
+      currentIndex++;
+    } 
+  
+  
+  
+  
+  
+  //Swipe right doPost
+  	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.addHeader("Access-Control-Allow-Origin", "*");
+		String Pet_Name = request.getParameter("pet_name"));
+		String PetType = request.getParameter("pettype"));
+		String Size = request.getParameter("size"));
+		String Age = request.getParameter("age"));
+		String Gender = request.getParameter("gender"));
+		String Rescus_id = request.getParameter("rescue_id"));
+		Sring ImgLink = request.getParameter("imglink"));
+		String Children = request.getParameter("children"));
+		String Dogs = request.getParameter("dogs"));
+		String Cat = request.getParameter("cat"));
+		
+		
+	}
+  
