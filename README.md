@@ -1,14 +1,16 @@
 ## Basic Info:
 
-Final Project for CSCI 201 Summer 2020
+Final Project for CSCI 201 Summer 2020.
 
-Main icon on top left: https://www.flaticon.com/free-icon/pet-house_3047827?term=pet&page=1&position=53
+Designed and created the UI/UX mainly bootstrap. The sources for graphics are listed below:
 
-Vector images: https://undraw.co/search
+* Logo source: https://www.flaticon.com/free-icon/pet-house_3047827?term=pet&page=1&position=53
 
-Icons: https://fontawesome.com/v4.7.0/icons/
+* Vector images: https://undraw.co/search
 
-Bootstrap registration/login forms: https://bootstrapious.com/
+* Icons: https://fontawesome.com/v4.7.0/icons/ and https://www.flaticon.com/
+
+* Bootstrap registration/login forms: https://bootstrapious.com/
 
 # Information routing:
 
