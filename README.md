@@ -10,6 +10,8 @@ The project's documentations is in `Final Document.pdf`
 
 This project is done in collaboration with Jae Shim, Mei Zhang, Xi Liu, and Hannah Oh.
 
+I designed and developed all the UI/UX. Jae Shim and Mei Zhang developed the backend (the `.java` files). Xi Liu created the React App. Hannah Oh compiled all the documentations.
+
 ## Things can be done better:
 * Unifed layout and coding style -- As of the project's submission, the main swiping interface is coded via React. However due to the size of file and improper management of the React App (200 MB), it's not uploaded here. The React's app functionality is to implement swiping animations with new pets
 
